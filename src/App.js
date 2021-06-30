@@ -1,13 +1,8 @@
 import "./App.css";
-import { useQuery } from "react-query";
-import axios from "axios";
+import { usePokemon } from "./index";
 
 function App() {
-  const { isLoading, error, data } = useQuery("pokemon", () =>
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then((res) => res.data.results)
-  );
+  const { isLoading, error, data, isFetching } = usePokemon();
   return isLoading ? (
     <h1>Loading.....</h1>
   ) : error ? (
@@ -17,6 +12,8 @@ function App() {
       {data?.map((result) => {
         return <div key={result.name}>{result.name}</div>;
       })}
+      <br />
+      {isFetching ? "Updating" : null}
     </div>
   );
 }
