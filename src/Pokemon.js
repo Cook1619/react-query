@@ -1,7 +1,7 @@
 import "./App.css";
 import { usePokemon } from "./index";
 
-function App() {
+export function Pokemon() {
   const { isLoading, error, data, isFetching } = usePokemon();
   return isLoading ? (
     <h1>Loading.....</h1>
