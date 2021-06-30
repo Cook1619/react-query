@@ -1,5 +1,4 @@
-import "./App.css";
-import { usePokemon } from "./index";
+import { usePokemon } from "./queries/pokemon";
 
 export function Pokemon() {
   const { isLoading, error, data, isFetching } = usePokemon();
@@ -17,5 +16,3 @@ export function Pokemon() {
     </div>
   );
 }
-
-export default App;
